@@ -1,0 +1,110 @@
+body{
+	background-color: #535353;
+	font-family: sans-serif;
+	text-shadow: 0px -1px 0px #333;
+}
+
+::selection {
+	background: rgba(0,0,0,0);
+}
+
+#frame{
+	// background-color: #ff0;
+	width: 200px;
+	position: absolute;
+	left: 50%;
+	margin: 15px 0 0 -100px;
+	padding: 0;
+	text-align: center;
+}
+
+#face{
+	margin: 20px auto;
+	width: 150px;
+	background-color: #333;
+	cursor: pointer;
+}
+#face:active img{
+	opacity: 0.5;
+}
+
+.mask{
+	width: 150px;
+	height: 150px;
+	pointer-events: none;
+	background-image: url(../img/mask.png);
+	position: absolute;
+	z-index: 5;
+}
+
+#face img{
+	width: 150px;
+	height: 150px;	
+	display: block;
+}
+
+input[type="text"]{
+	width: 150px;
+	color: #fff;
+	background-color: rgba(0,0,0,0);
+	border: none;
+	outline: none;
+	text-align: center;
+	text-transform: capitalize;
+	text-shadow: 0px -1px 0px #333;
+}
+
+ul.gender{
+	overflow: hidden;
+	width: 150px;
+	margin: auto;
+}
+ul.gender li{
+	float: left;
+	width: 50px;
+	height: 25px;
+	cursor: pointer;
+	background: url(../img/sprite_gender_rest.png);
+}
+li#gender_men{ background-position: 0 0; }
+li#gender_both{ background-position: -50px 0; }
+li#gender_women{ background-position: -100px 0; }
+
+ul.gender li:hover,
+a.button_randomize:hover{
+	opacity: 0.75;
+}
+ul.gender li.active{
+	opacity: 1 !important;
+	background-image: url(../img/sprite_gender_active.png);
+}
+
+a.button_randomize{
+	display: block;
+	width: 150px;
+	height: 25px;
+	margin: 10px auto 0 auto;
+	background: url(../img/sprite_new_rest.png);
+}
+a.button_randomize:active{
+	background: url(../img/sprite_new_active.png);
+}
+
+/* PACE */
+.pace .pace-progress {
+  background: #f27b2f;
+  position: fixed;
+  z-index: 2000;
+  top: 0;
+  left: 0;
+  height: 2px;
+
+  -webkit-transition: width 1s;
+  -moz-transition: width 1s;
+  -o-transition: width 1s;
+  transition: width 1s;
+}
+
+.pace-inactive {
+  display: none;
+}

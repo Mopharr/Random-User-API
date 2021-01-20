@@ -1,0 +1,50 @@
+<ExtensionManifest Version="3.0" ExtensionBundleId="RandomUsers" ExtensionBundleVersion="1.0.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Author><![CDATA[Arron Hunt]]></Author>
+  <Abstract><![CDATA[&quot;Random User Generator&quot; is a customized panel for Photoshop CS6 developed by Configurator 4. Once this extension is installed, &quot;Random User Generator&quot; can be launched from Window &gt; Extension &gt; Random User Generator. Select, Window &gt; Extension &gt; to close the Random User Generator panel.]]></Abstract>
+  <ExtensionList>
+    <Extension Id="RandomUsers" Version="1.0.1"/>
+  </ExtensionList>
+  <ExecutionEnvironment>
+    <HostList>
+      <Host Name="PHXS" Version="[13.0,13.9]"/>
+      <Host Name="PHSP" Version="[13.0,13.9]"/>
+    </HostList>
+    <LocaleList>
+      <Locale Code="All"/>
+    </LocaleList>
+    <RequiredRuntimeList>
+      <RequiredRuntime Name="CSXS" Version="3.0"/>
+    </RequiredRuntimeList>
+  </ExecutionEnvironment>
+  <DispatchInfoList>
+    <Extension Id="RandomUsers">
+      <DispatchInfo>
+        <Resources>
+          <SwfPath>./content/Configurator-Panel.swf</SwfPath>
+          <ScriptPath>./content/Configurator-Panel.jsx</ScriptPath>
+        </Resources>
+        <Lifecycle>
+          <AutoVisible>true</AutoVisible>
+        </Lifecycle>
+        <UI>
+          <Type>Panel</Type>
+          <Menu>Random User Generator</Menu>
+          <Geometry>
+            <Size>
+              <Height>310</Height>
+              <Width>225</Width>
+            </Size>
+            <MinSize>
+              <Height>310</Height>
+              <Width>225</Width>
+            </MinSize>
+          </Geometry>
+          <Icons>
+            <Icon Type="Normal">./content/icon_light.png</Icon>
+            <Icon Type="DarkNormal">./content/icon_dark.png</Icon>
+          </Icons>
+        </UI>
+      </DispatchInfo>
+    </Extension>
+  </DispatchInfoList>
+</ExtensionManifest>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Random User Generator</title>
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/pace.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="css/reset.css">
+		<link rel="stylesheet" type="text/css" href="css/base.css">
+	</head>
+	<body>
+	
+		<div id="frame">
+			<ul class="gender">
+				<li id="gender_men"></li>
+				<li id="gender_both" class="active"></li>
+				<li id="gender_women"></li>
+			</ul>
+			<div id="face">
+				<div class="mask"></div>
+				<img id="avatar" src="" title="Drag and drop this image into Photoshop">
+			</div>
+			<input id="name" type="text" value="" />
+			<a href="javascript: getUser();" class="button_randomize"></a>
+		</div>
+		<script type="text/javascript">
+		var gender = 'both';
+
+		function getUser(){	
+			$('#name').attr('value', '...');
+
+			$.ajax({
+				url: 'http://api.randomuser.me/?extension=true&gender='+gender,
+				dataType: 'json',
+				success: function(data){
+					// console.log();
+					var first_name = data.results[0].user.name.first;
+
+					$('#avatar').attr('src', data.results[0].user.picture);
+					$('#name').attr('value', first_name+' '+data.results[0].user.name.last);
+				}
+			});
+		}
+		getUser();
+
+		$('#gender_men').click(function(){
+			$('.gender li').removeClass('active');
+			$(this).addClass('active');
+			gender = 'male';
+			getUser();
+		});
+		$('#gender_both').click(function(){
+			$('.gender li').removeClass('active');
+			$(this).addClass('active');
+			gender = 'both';
+			getUser();
+		});
+		$('#gender_women').click(function(){
+			$('.gender li').removeClass('active');
+			$(this).addClass('active');
+			gender = 'female';
+			getUser();
+		});
+
+		// Pre-cache
+		/*
+		var count = 80,
+			container = [];
+
+		for(var x = 0; x < count; x++) {
+		    container[x] = new Image()
+		    container[x].src = 'http://api.randomuser.me/0.3/portraits/men/'+x+'.jpg';
+		}
+		for(var x = 0; x < 60; x++) {
+		    container[x] = new Image()
+		    container[x].src = 'http://api.randomuser.me/0.3/portraits/women/'+x+'.jpg';
+		}*/
+		</script>
+	</body>
+</html>
